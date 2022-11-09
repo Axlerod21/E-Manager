@@ -1,0 +1,50 @@
+.listContainer {
+    width:80vh;
+    border: 3px black solid;
+    overflow: auto;
+}
+
+.list {
+    list-style: none;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+}
+
+.listHeader {
+    height: 6vh;
+    background-color: pink;
+}
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #EEEEEE;
+    border: 1px solid #DDDDDD;
+    height: 8vh;
+    width: 100%;
+    transition-duration: 0.3s;
+}
+.listItem:hover {
+    background-color: #e7e0e0;
+}
+
+.statusContainer {
+    display: "flex"; 
+    align-items: "baseline";
+}
+
+.status {
+    border-radius: 9999px;
+    height: 0.5rem;
+    width: 0.5rem;
+    margin-right: 4px;
+}
+.status[data-status="0"] {
+    background-color: #a31616;
+}
+.status[data-status="1"] {
+    background-color: #16a34a;
+}

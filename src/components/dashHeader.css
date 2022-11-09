@@ -1,0 +1,7 @@
+.header {
+    background-color: rgb(58, 58, 193);
+    min-height: 5vh;
+    font-size: 20px;
+    text-align: end;
+    padding: 1.2vh;
+}
