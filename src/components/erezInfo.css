@@ -1,13 +1,21 @@
 .emptyInfoBox {
     border: 3px black solid;
     height: 85vh;
-    width: 125vh;
+    min-width: 60%;
+    margin-right: 30px;
+
+    border-radius: 10px;
+    box-shadow: 5px 8px grey;
 }
 
 .infoBox {
     border: 3px black solid;
     height: 85vh;
-    width: 125vh;
+    min-width: 60%;
+    margin-right: 30px;
+
+    border-radius: 10px;
+    box-shadow: 5px 8px grey;
 
     display: grid;
     grid-template-columns: 50% 50%;

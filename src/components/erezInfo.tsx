@@ -1,12 +1,11 @@
 import "./erezInfo.css";
 
 interface ErezProps {
-  id: number;
-  isErezPressed: boolean;
+  id?: number;
 }
 
 const ErezInfo = (props: ErezProps) => {
-  if (props.isErezPressed) {
+  if (props.id) {
     return (
       <div className="infoBox">
         <div

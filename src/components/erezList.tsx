@@ -1,53 +1,54 @@
 import React, { useState } from "react";
 import "./erezList.css";
 import { Erez } from "./ErezDef";
+import { Tooltip, IconButton, ListItemButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 interface ErezProps {
-  data: Erez[];
-  currenErezId: any;
-  onPress: any;
+  initialErezList: Erez[];
+  onErezClick: (id: number) => void;
 }
 
 const ErezList = (props: ErezProps) => {
-
-  const [list, setList] = useState(props.data);
-
-  const erezIntoListItem = (erez: Erez) => {
-    return (
-      <button className="listItem" onClick={() => handleErezId(erez.id)}>
-        <button
-          className="delete"
-          onClick={() => {
-            removeErez(erez.id);
-          }}
-        >
-          X
-        </button>
-        <div style={{ display: "flex", alignItems: "baseline" }}>
-          <div data-status={erez.status} className="status"></div>
-          <div> :מצב</div>
-        </div>
-        <div className="name">{erez.name}</div>
-      </button>
-    );
-  };
+  
+  const [list, setList] = useState(props.initialErezList);
 
   const removeErez = (id: Number) => {
     setList(list.filter((erez) => erez.id !== id));
-    console.log(list);
   };
 
+  // TODO handle click
   const handleErezId = (id: number) => {
-    props.onPress();
-    props.currenErezId(id);
+    props.onErezClick(id);
   };
 
-  const erezList = list.map(erezIntoListItem);
-
+  //TODO check rtl / ltr
   return (
     <div className="listContainer">
       <div className="listHeader"></div>
-      <div className="list">{erezList}</div>
+      <div className="list">{
+        list.map((erez: Erez) => {
+          return (
+            <ListItemButton
+              color="inherit"
+              className="listItem"
+              alignItems="center"
+              onClick={() => handleErezId(erez.id)}
+            >
+              <Tooltip title="Delete" onClick={() => removeErez(erez.id)}>
+                <IconButton>
+                  <DeleteIcon />
+                </IconButton>
+              </Tooltip>
+              <div style={{ display: "flex", alignItems: "baseline" }}> 
+                <div data-status={erez.status} className="status"></div>
+                <div> :מצב</div>
+              </div>
+              <div className="name">{erez.name}</div>
+            </ListItemButton>
+          );
+        })
+      }</div>
     </div>
   );
 };

@@ -26,13 +26,73 @@ const dummyData = [
     name: "123_5678_1012",
     status: ErezStatus.awake,
   },
+  {
+    id: 123456789,
+    name: "123_5678_1462",
+    status: ErezStatus.awake,
+  },
+  {
+    id: 987654321,
+    name: "123_5678_9012",
+    status: ErezStatus.awake,
+  },
+  {
+    id: 147258369,
+    name: "123_5678_5512",
+    status: ErezStatus.asleep,
+  },
+  {
+    id: 369258147,
+    name: "123_5678_1012",
+    status: ErezStatus.awake,
+  },
+  {
+    id: 123456789,
+    name: "123_5678_1462",
+    status: ErezStatus.awake,
+  },
+  {
+    id: 987654321,
+    name: "123_5678_9012",
+    status: ErezStatus.awake,
+  },
+  {
+    id: 147258369,
+    name: "123_5678_5512",
+    status: ErezStatus.asleep,
+  },
+  {
+    id: 369258147,
+    name: "123_5678_1012",
+    status: ErezStatus.awake,
+  },
+  {
+    id: 123456789,
+    name: "123_5678_1462",
+    status: ErezStatus.awake,
+  },
+  {
+    id: 987654321,
+    name: "123_5678_9012",
+    status: ErezStatus.awake,
+  },
+  {
+    id: 147258369,
+    name: "123_5678_5512",
+    status: ErezStatus.asleep,
+  },
+  {
+    id: 369258147,
+    name: "123_5678_1012",
+    status: ErezStatus.awake,
+  },
 ];
 
 function App() {
-  const [erezPressed, setErezPressed] = useState(false);
-  const [erezId, setErezId] = useState(0);
+  // const [erezPressed, setErezPressed] = useState(false);
+  const [erezId, setErezId] = useState<number | undefined>();
 
-  const handleErezId = (newId: number) => {
+  const onClickErezId = (newId: number) => {
     setErezId(newId);
   };
 
@@ -40,13 +100,10 @@ function App() {
     <div className="App">
       <DashHeader />
       <div className="erezBody">
-        <ErezInfo id={erezId} isErezPressed={erezPressed} />
+        <ErezInfo id={erezId} />
         <ErezList
-          data={dummyData}
-          onPress={() => {
-            setErezPressed(true);
-          }}
-          currenErezId={handleErezId}
+          initialErezList={dummyData}
+          onErezClick={onClickErezId}
         />
       </div>
     </div>
