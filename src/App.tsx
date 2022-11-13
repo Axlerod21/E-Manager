@@ -1,109 +1,83 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import DashHeader from "./components/dashHeader";
-import ErezList from "./components/erezList";
-import ErezInfo from "./components/erezInfo";
-import { ErezStatus } from "./components/ErezDef";
+import DashHeader from "./components/dash_header";
+import ErezList from "./components/erez_list";
+import ErezInfo from "./components/erez_info";
+import { Erez, ErezMode } from "./models/erez";
 
-const dummyData = [
+const dummyData: Erez[] = [
   {
-    id: 123456789,
+    _id: 123456789,
     name: "123_5678_1462",
-    status: ErezStatus.awake,
+    asleep: false,
+    channelA: 123,
+    channelB: 456,
+    connected: true,
+    frequency: 678,
+    ip: '178.178.123.456',
+    mode: ErezMode.B,
+    multicastA: '123.123.123.123',
+    multicastB: '223.123.123.123',
+    multicastC: '323.123.123.123',
+    ndpIp: '323.123.123.123',
+    ndpPort: 1234,
+    sipIp: '123.123.12.3',
+    sipPort: 5060
   },
   {
-    id: 987654321,
-    name: "123_5678_9012",
-    status: ErezStatus.awake,
-  },
-  {
-    id: 147258369,
-    name: "123_5678_5512",
-    status: ErezStatus.asleep,
-  },
-  {
-    id: 369258147,
-    name: "123_5678_1012",
-    status: ErezStatus.awake,
-  },
-  {
-    id: 123456789,
+    _id: 123457479,
     name: "123_5678_1462",
-    status: ErezStatus.awake,
+    asleep: false,
+    channelA: 123,
+    channelB: 456,
+    connected: true,
+    frequency: 678,
+    ip: '178.178.123.456',
+    mode: ErezMode.B,
+    multicastA: '123.123.123.123',
+    multicastB: '223.123.123.123',
+    multicastC: '323.123.123.123',
+    ndpIp: '323.123.123.123',
+    ndpPort: 1234,
+    sipIp: '123.123.12.3',
+    sipPort: 5060
   },
   {
-    id: 987654321,
-    name: "123_5678_9012",
-    status: ErezStatus.awake,
-  },
-  {
-    id: 147258369,
-    name: "123_5678_5512",
-    status: ErezStatus.asleep,
-  },
-  {
-    id: 369258147,
-    name: "123_5678_1012",
-    status: ErezStatus.awake,
-  },
-  {
-    id: 123456789,
+    _id: 1232344389,
     name: "123_5678_1462",
-    status: ErezStatus.awake,
-  },
-  {
-    id: 987654321,
-    name: "123_5678_9012",
-    status: ErezStatus.awake,
-  },
-  {
-    id: 147258369,
-    name: "123_5678_5512",
-    status: ErezStatus.asleep,
-  },
-  {
-    id: 369258147,
-    name: "123_5678_1012",
-    status: ErezStatus.awake,
-  },
-  {
-    id: 123456789,
-    name: "123_5678_1462",
-    status: ErezStatus.awake,
-  },
-  {
-    id: 987654321,
-    name: "123_5678_9012",
-    status: ErezStatus.awake,
-  },
-  {
-    id: 147258369,
-    name: "123_5678_5512",
-    status: ErezStatus.asleep,
-  },
-  {
-    id: 369258147,
-    name: "123_5678_1012",
-    status: ErezStatus.awake,
-  },
+    asleep: false,
+    channelA: 123,
+    channelB: 456,
+    connected: true,
+    frequency: 678,
+    ip: '178.178.123.456',
+    mode: ErezMode.B,
+    multicastA: '123.123.123.123',
+    multicastB: '223.123.123.123',
+    multicastC: '323.123.123.123',
+    ndpIp: '323.123.123.123',
+    ndpPort: 1234,
+    sipIp: '123.123.12.3',
+    sipPort: 5060
+  }
 ];
 
 function App() {
   // const [erezPressed, setErezPressed] = useState(false);
-  const [erezId, setErezId] = useState<number | undefined>();
+  const [erez, setErez] = useState<Erez | undefined>();
 
-  const onClickErezId = (newId: number) => {
-    setErezId(newId);
+  const onErezClicked = (clickedErez: Erez) => {
+    setErez(clickedErez);
   };
 
   return (
     <div className="App">
       <DashHeader />
       <div className="erezBody">
-        <ErezInfo id={erezId} />
+        <ErezInfo erez={erez} />
         <ErezList
           initialErezList={dummyData}
-          onErezClick={onClickErezId}
+          onErezClick={onErezClicked}
         />
       </div>
     </div>
