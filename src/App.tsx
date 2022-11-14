@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useQuery } from 'react-query';
 import "./App.css";
 import DashHeader from "./components/dash_header";
 import ErezList from "./components/erez_list";
 import ErezInfo from "./components/erez_info";
 import { Erez, ErezMode } from "./models/erez";
+import erezApiClient from "./API/erez_api";
 
 const dummyData: Erez[] = [
   {
@@ -63,7 +65,16 @@ const dummyData: Erez[] = [
 ];
 
 function App() {
+  const {
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+    data,
+  } = useQuery('erez',  )
   const [erez, setErez] = useState<Erez | undefined>();
+
+
 
   const onErezClicked = (clickedErez: Erez) => {
     setErez(clickedErez);
