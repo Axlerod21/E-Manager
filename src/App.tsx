@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./app.css";
 import DashHeader from "./components/dash_header";
 import ErezList from "./components/erez_list";
 import ErezInfo from "./components/erez_info";
@@ -8,7 +8,7 @@ import { Erez, ErezMode } from "./models/erez";
 const dummyData: Erez[] = [
   {
     _id: 123456789,
-    name: "123_5678_1462",
+    name: "a",
     asleep: false,
     channelA: 123,
     channelB: 456,
@@ -26,7 +26,7 @@ const dummyData: Erez[] = [
   },
   {
     _id: 123457479,
-    name: "123_5678_1462",
+    name: "b",
     asleep: false,
     channelA: 123,
     channelB: 456,
@@ -44,7 +44,7 @@ const dummyData: Erez[] = [
   },
   {
     _id: 1232344389,
-    name: "123_5678_1462",
+    name: "c",
     asleep: false,
     channelA: 123,
     channelB: 456,
@@ -63,7 +63,6 @@ const dummyData: Erez[] = [
 ];
 
 function App() {
-  // const [erezPressed, setErezPressed] = useState(false);
   const [erez, setErez] = useState<Erez | undefined>();
 
   const onErezClicked = (clickedErez: Erez) => {

@@ -9,16 +9,11 @@ interface ErezProps {
   onErezClick: (erez: Erez) => void;
 }
 
-const ErezList = (props: ErezProps) => {
-  const [list, setList] = useState(props.initialErezList);
+const ErezList = ({ initialErezList, onErezClick }: ErezProps) => {
+  const [list, setList] = useState(initialErezList);
 
   const removeErez = (id: number) => {
     setList(list.filter(erez => erez._id !== id));
-  };
-
-  // TODO handle click
-  const handleErezClick = (erez: Erez) => {
-    props.onErezClick(erez);
   };
 
   // TODO check rtl / ltr
@@ -32,7 +27,7 @@ const ErezList = (props: ErezProps) => {
               color="inherit"
               className="listItem"
               alignItems="center"
-              onClick={() => handleErezClick(erez)}
+              onClick={() => onErezClick(erez)}
             >
               <Tooltip title="Delete" onClick={() => removeErez(erez._id)}>
                 <IconButton>
