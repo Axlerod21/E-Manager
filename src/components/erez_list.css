@@ -70,10 +70,10 @@ html {
     margin-right: 4px;
 }
 
-.status[data-status="0"] {
+.status[data-status="false"] {
     background-color: #a31616;
 }
 
-.status[data-status="1"] {
+.status[data-status="true"] {
     background-color: #16a34a;
 }
