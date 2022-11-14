@@ -1,5 +1,4 @@
-import React from "react";
-import './dashHeader.css'
+import './dash_header.css'
 
 const DashHeader = () => {
     return (
