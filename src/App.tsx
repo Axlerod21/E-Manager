@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./app.css";
+import "./App.css";
 import DashHeader from "./components/dash_header";
 import ErezList from "./components/erez_list";
 import ErezInfo from "./components/erez_info";
