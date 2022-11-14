@@ -1,22 +1,21 @@
 .emptyInfoBox {
-    border: 3px black solid;
     height: 85vh;
     min-width: 60%;
     margin-right: 30px;
+    display: none;
 
     border-radius: 10px;
-    box-shadow: 5px 8px grey;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .infoBox {
-    border: 3px black solid;
     height: 85vh;
     min-width: 60%;
     margin-right: 30px;
 
     border-radius: 10px;
-    box-shadow: 5px 8px grey;
-
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 117px;
@@ -24,7 +23,7 @@
 
 .erezName {
     text-align: center;
-    border-bottom: 2px black solid;
+    border-bottom: 2px lightgray solid;
 }
 
 .info {
